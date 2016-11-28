@@ -17,7 +17,7 @@ class ItemValidationTest(FunctionalTest):
         
         #she tries again with some text for the item which works
         self.browser.find_element_by_id('id_new_item').send_keys('Buy milk\n')
-        self.assertEqual(error.text,"You can't have an empty list item")
+        self.check_for_row_in_list_table('1: Buy milk')
         
         #perversely, she now decides to submit a second blank item
         self.browser.find_element_by_id('id_new_item').send_keys('\n')
